@@ -1,0 +1,41 @@
+<router-outlet></router-outlet>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="containerbox col-12 col-lg-5" [ngClass]="{ dark: isDarkMode }">
+      <img
+        [src]="user.userImage"
+        class="imgperfil"
+        alt="Una imagen de perfil"
+      />
+      <h1>{{ user.userName }}</h1>
+      <p>
+        {{ user.userDescription }}
+      </p>
+      <p>Visita todos mis links oficiales</p>
+      <a
+        *ngFor="let item of user.links"
+        href="{{ item.link }}"
+        class="row mt-3 link-item d-flex align-items-center"
+      >
+        <div class="item-left icon col-6">
+          <fa-icon [icon]='item.icons'></fa-icon>
+        </div>
+        <div class="item-right col-6">
+          <p>{{ item.title }}</p>
+        </div>
+      </a>
+      
+      <div class="botton">
+        <div (click)="changeMode()" *ngIf="!isDarkMode">
+          <fa-icon [icon]="gitLight"></fa-icon>
+        </div>
+        <div (click)="changeMode()" *ngIf="isDarkMode" class="bottonlight">
+          <fa-icon [icon]="gitNight"></fa-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
