@@ -1,6 +1,10 @@
 import { Component, Renderer2 } from '@angular/core';
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
-import { faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import {
+  faTwitter,
+  faGithub,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons';
 import { faLightbulb as lightregular } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
@@ -16,7 +20,8 @@ export class AppComponent {
 
   user = {
     userName: 'Miguel Menchén',
-    userDescription: 'Esto es una breve descripción del perfil 😀',
+    userDescription:
+      'Decidí formarme en Informática porque me gusta el dinamismo de la tecnología. Actualmente busco una oportunidad laboral dentro del mundo del diseño web 😀',
     userImage: '../assets/img/imagen.jpg',
     links: [
       {
@@ -25,28 +30,21 @@ export class AppComponent {
         icons: faGithub,
       },
       {
-        link: 'https://twitter.com/?lang=es',
-        title: 'Este es mi twitter',
-        icons: faTwitter,
-      },
-      {
-        link: 'https://es.linkedin.com/',
+        link: 'https://www.linkedin.com/in/miguel-menchen-1983b0217//',
         title: 'Mi linkedin',
         icons: faLinkedin,
       },
     ],
   };
 
-  constructor(private renderer: Renderer2){
-
-  }
+  constructor(private renderer: Renderer2) {}
 
   changeMode() {
     this.isDarkMode = !this.isDarkMode;
     console.log(this.isDarkMode);
-    if(this.isDarkMode){
+    if (this.isDarkMode) {
       this.renderer.addClass(document.body, 'dark');
-    }else{
+    } else {
       this.renderer.removeClass(document.body, 'dark');
     }
   }
